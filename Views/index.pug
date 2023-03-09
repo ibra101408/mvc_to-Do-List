@@ -9,3 +9,9 @@ html(lang="en")
 
     body
         h1 To-Do List App
+    tbody
+        each todo in todos
+            tr
+                td= todo.id
+                td= todo.title
+                td= todo.description
