@@ -9,9 +9,28 @@ html(lang="en")
 
     body
         h1 To-Do List App
-    tbody
-        each todo in todos
+
+        form(action="/todos", method="POST")
+            input(type="text", name="title", placeholder="Title")
+            input(type="text", name="description", placeholder="Description")
+            input(type="submit", value="Add To-Do Item")
+        hr
+
+    table#todos-table
+        thead
             tr
-                td= todo.id
-                td= todo.title
-                td= todo.description
+                th id
+                th Title
+                th Description
+                th Due Date
+                th
+        tbody
+            each todo in todos
+                tr
+                    td= todo.id
+                    td= todo.title
+                    td= todo.description
+                    td
+                        form(action=`/todos/${todo.id}?_method=DELETE`, method="POST")
+                            input(type="hidden", name="_method", value="DELETE")
+                            button.but( type="submit") Delete
