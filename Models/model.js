@@ -26,5 +26,16 @@ module.exports = {
                 }
             });
         });
+    },
+    delete: (id) => {
+        return new Promise((resolve, reject) => {
+            db.run('DELETE FROM todos WHERE id = ?', [id], (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
     }
 };

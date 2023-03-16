@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title To-Do List App
+        link(rel="stylesheet", href="stylesheets/style.css")
+
+    body
+        h1 To-Do List App CREATE
+
+        form(action="/todos", method="POST")
+            input(type="text", name="title", placeholder="Title")
+            input(type="text", name="description", placeholder="Description")
+            input(type="submit", value="Add To-Do Item")
+        hr
+
+

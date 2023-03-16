@@ -5,15 +5,17 @@ const controller = require('./controllers/controller');
 const model = require("./models/model")
 
 app.set('view engine', 'pug');
+app.set('views', './views');
 app.use(express.static('public'));
-
 app.use(express.urlencoded({ extended: true }));
 
 // Use the controller for all requests to the /todos route
 app.get('/', (req, res) => {
-    res.redirect('/todos'); // redirect the root route to the /todos route
+    res.render('create')
+    //res.redirect('/create'); // redirect the root route to the /todos route
 });
 app.use('/todos', controller);
+//app.use('/create', createController);
 
 
 
